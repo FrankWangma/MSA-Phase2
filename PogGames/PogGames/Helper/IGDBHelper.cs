@@ -15,19 +15,15 @@ namespace PogGames.Helper
         public static void testProgram()
         {
             
-            Console.WriteLine(GetGameAsync("Overwatch"));
+            Console.WriteLine(GetGameInfoAsync("Overwatch"));
 
 
             Console.ReadLine();
         }
 
-        public static String GetGenreFromName(String gameName)
-        {
-            
-            return gameName;
-        }
+        
 
-        public static async Task<Game> GetGameAsync(String gameName)
+        public static async Task<Game> GetGameInfoAsync(String gameName)
         {
             string APIKey = ("d5c8b25f428f3bd850594d5f587f9095");
 
@@ -61,12 +57,13 @@ namespace PogGames.Helper
                     game.GameId = int.Parse(id);
                     game.GameName = name;
                     game.GameRelease = release_date;
-                    game.GameSummary = summary;
+                    game.GameSummary = summary
                     game.GameCompany = company;
                     game.Genre = genre;
                     game.Rating = rating;
                     game.RatingCount = int.Parse(rating_count);
                     game.CoverImageUrl = coverImageURL;
+                    game.IsFavourite = false;
                     
                     return game;
                 }

@@ -5,10 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using PogGames.Helper;
 using PogGames.Model;
 
 namespace PogGames.Controllers
 {
+    public class nameDTO
+    {
+        public string gameName { get; set; }
+    }
     [Route("api/[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
@@ -73,11 +78,25 @@ namespace PogGames.Controllers
 
         // POST: api/Games
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame(Game game)
+        public async Task<ActionResult<Game>> PostGame([FromBody]nameDTO data)
         {
+            Game game;
+            String gameName;
+
+            try
+            {
+                //Use helper function to get the game object
+                gameName = data.gameName;
+                game = await IGDBHelper.GetGameInfoAsync(gameName);
+            } catch
+            {
+                return BadRequest("Invalid game name");
+            }
+            // add the game object to database
             _context.Game.Add(game);
             await _context.SaveChangesAsync();
 
+            //return success code and game object
             return CreatedAtAction("GetGame", new { id = game.GameId }, game);
         }
 

@@ -14,8 +14,8 @@ namespace PogGames
     {
         public static void Main(string[] args)
         {
-            
-            CreateWebHostBuilder(args).Build().Run();
+            Helper.IGDBHelper.testProgram();
+            //CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

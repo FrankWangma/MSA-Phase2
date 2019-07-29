@@ -15,7 +15,7 @@ namespace PogGames.Helper
         public static void testProgram()
         {
             
-            Console.WriteLine(GetGameInfoAsync("Overwatch"));
+            Console.WriteLine(getCharacterInfoFromIDAsync("8173"));
 
 
             Console.ReadLine();
@@ -64,10 +64,39 @@ namespace PogGames.Helper
                     game.RatingCount = int.Parse(rating_count);
                     game.CoverImageUrl = coverImageURL;
                     game.IsFavourite = false;
-                    
+
+                    await getCharacterInfoFromIDAsync(game.GameId);
                     return game;
                 }
             }
+        }
+
+
+        public static async Task<Character> getCharacterInfoFromIDAsync(String gameId) 
+        {
+            string APIKey = ("d5c8b25f428f3bd850594d5f587f9095");
+            Character character = new Character();
+            using (var httpClient = new HttpClient())
+            {
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://api-v3.igdb.com/characters/search/" + gameId + "&fields=name, gender, country_name, url, games"))
+                {
+                    request.Headers.TryAddWithoutValidation("Accept", "application/json");
+                    request.Headers.TryAddWithoutValidation("user-key", APIKey);
+
+                    request.Content = new StringContent("fields akas,country_name,created_at,description,games,gender,mug_shot,name,people,slug,species,updated_at,url;", Encoding.UTF8, "application/x-www-form-urlencoded");
+
+                    var response = await httpClient.SendAsync(request);
+
+                    response.EnsureSuccessStatusCode();
+                    string responsebody = await response.Content.ReadAsStringAsync();
+
+                    dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(responsebody);
+                    Console.WriteLine(jsonObj);
+                    Console.WriteLine("Done");
+                }
+            }
+
+            return character;
         }
     }
 }

@@ -78,7 +78,7 @@ namespace PogGames.Helper
             Character character = new Character();
             using (var httpClient = new HttpClient())
             {
-                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://api-v3.igdb.com/characters/search/" + gameId + "&fields=name, gender, country_name, url, games"))
+                using (var request = new HttpRequestMessage(new HttpMethod("POST"), "https://api-v3.igdb.com/characters/" + gameId + "&fields=name, gender, country_name, url, games"))
                 {
                     request.Headers.TryAddWithoutValidation("Accept", "application/json");
                     request.Headers.TryAddWithoutValidation("user-key", APIKey);

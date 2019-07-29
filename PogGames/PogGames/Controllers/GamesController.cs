@@ -10,14 +10,15 @@ using PogGames.Model;
 
 namespace PogGames.Controllers
 {
-    public class nameDTO
-    {
-        public string gameName { get; set; }
-    }
     [Route("api/[controller]")]
     [ApiController]
     public class GamesController : ControllerBase
     {
+
+        public class NameDTO
+        {
+            public string gameName { get; set; }
+        }
         private readonly PogGamesContext _context;
 
         public GamesController(PogGamesContext context)
@@ -34,7 +35,7 @@ namespace PogGames.Controllers
 
         // GET: api/Games/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Game>> GetGame(int id)
+        public async Task<ActionResult<Game>> GetGame(string id)
         {
             var game = await _context.Game.FindAsync(id);
 
@@ -48,7 +49,7 @@ namespace PogGames.Controllers
 
         // PUT: api/Games/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutGame(int id, Game game)
+        public async Task<IActionResult> PutGame(string id, Game game)
         {
             if (id != game.GameId)
             {
@@ -78,7 +79,7 @@ namespace PogGames.Controllers
 
         // POST: api/Games
         [HttpPost]
-        public async Task<ActionResult<Game>> PostGame([FromBody]nameDTO data)
+        public async Task<ActionResult<Game>> PostGame([FromBody]NameDTO data)
         {
             Game game;
             String gameName;
@@ -92,17 +93,19 @@ namespace PogGames.Controllers
             {
                 return BadRequest("Invalid game name");
             }
-            // add the game object to database
+
+            //add the game object to database
             _context.Game.Add(game);
             await _context.SaveChangesAsync();
 
             //return success code and game object
             return CreatedAtAction("GetGame", new { id = game.GameId }, game);
+
         }
 
         // DELETE: api/Games/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Game>> DeleteGame(int id)
+        public async Task<ActionResult<Game>> DeleteGame(string id)
         {
             var game = await _context.Game.FindAsync(id);
             if (game == null)
@@ -116,7 +119,7 @@ namespace PogGames.Controllers
             return game;
         }
 
-        private bool GameExists(int id)
+        private bool GameExists(string id)
         {
             return _context.Game.Any(e => e.GameId == id);
         }

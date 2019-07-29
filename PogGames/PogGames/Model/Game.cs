@@ -12,7 +12,6 @@ namespace PogGames.Model
             Character = new HashSet<Character>();
         }
 
-        public int GameId { get; set; }
         [Required]
         [StringLength(255)]
         public string GameName { get; set; }
@@ -38,6 +37,8 @@ namespace PogGames.Model
         public int? RatingCount { get; set; }
         [Column("isFavourite")]
         public bool IsFavourite { get; set; }
+        [StringLength(255)]
+        public string GameId { get; set; }
 
         [InverseProperty("Game")]
         public virtual ICollection<Character> Character { get; set; }

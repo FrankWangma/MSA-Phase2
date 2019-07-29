@@ -7,8 +7,11 @@ namespace PogGames.Model
 {
     public partial class Character
     {
-        public int CharId { get; set; }
-        public int GameId { get; set; }
+        [StringLength(255)]
+        public string CharId { get; set; }
+        [Required]
+        [StringLength(255)]
+        public string GameId { get; set; }
         [Required]
         [StringLength(255)]
         public string CharName { get; set; }
@@ -16,8 +19,9 @@ namespace PogGames.Model
         [StringLength(255)]
         public string CharCountry { get; set; }
         [Required]
-        [StringLength(255)]
+        [StringLength(8000)]
         public string CharDescription { get; set; }
+        [Required]
         [StringLength(255)]
         public string CharGender { get; set; }
         [Required]

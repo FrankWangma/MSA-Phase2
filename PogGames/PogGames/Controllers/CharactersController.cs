@@ -29,7 +29,7 @@ namespace PogGames.Controllers
 
         // GET: api/Characters/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Character>> GetCharacter(int id)
+        public async Task<ActionResult<Character>> GetCharacter(string id)
         {
             var character = await _context.Character.FindAsync(id);
 
@@ -43,7 +43,7 @@ namespace PogGames.Controllers
 
         // PUT: api/Characters/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCharacter(int id, Character character)
+        public async Task<IActionResult> PutCharacter(string id, Character character)
         {
             if (id != character.CharId)
             {
@@ -76,14 +76,28 @@ namespace PogGames.Controllers
         public async Task<ActionResult<Character>> PostCharacter(Character character)
         {
             _context.Character.Add(character);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException)
+            {
+                if (CharacterExists(character.CharId))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtAction("GetCharacter", new { id = character.CharId }, character);
         }
 
         // DELETE: api/Characters/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Character>> DeleteCharacter(int id)
+        public async Task<ActionResult<Character>> DeleteCharacter(string id)
         {
             var character = await _context.Character.FindAsync(id);
             if (character == null)
@@ -97,7 +111,7 @@ namespace PogGames.Controllers
             return character;
         }
 
-        private bool CharacterExists(int id)
+        private bool CharacterExists(string id)
         {
             return _context.Character.Any(e => e.CharId == id);
         }

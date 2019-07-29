@@ -54,10 +54,10 @@ namespace PogGames.Helper
                     string rating = jsonObj[0]["rating"];
                     string rating_count = jsonObj[0]["rating_count"];
                     Game game = new Game();
-                    game.GameId = int.Parse(id);
+                    game.GameId = id;
                     game.GameName = name;
                     game.GameRelease = release_date;
-                    game.GameSummary = summary
+                    game.GameSummary = summary;
                     game.GameCompany = company;
                     game.Genre = genre;
                     game.Rating = rating;

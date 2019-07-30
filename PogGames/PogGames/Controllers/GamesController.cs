@@ -86,12 +86,13 @@ namespace PogGames.Controllers
 
             try
             {
-                //Use helper function to get the game object
+                // Constructing the game object from our helper function
                 gameName = data.gameName;
-                game = await IGDBHelper.GetGameInfoAsync(gameName);
-            } catch
+                game = GiantBombHelper.GetGameFromName(gameName);
+            }
+            catch
             {
-                return BadRequest("Invalid game name");
+                return BadRequest("Invalid Game Name");
             }
 
             //add the game object to database

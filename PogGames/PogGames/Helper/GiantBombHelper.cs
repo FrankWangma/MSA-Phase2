@@ -10,6 +10,7 @@ namespace PogGames.Helper
 {
     public class GiantBombHelper
     {
+        private static String APIKey = "87607bb5a3fe599b22933b83f2226583fec57790";
         public static void testProgram()
         {
             Console.WriteLine(GetGameFromName("Overwatch"));
@@ -20,8 +21,6 @@ namespace PogGames.Helper
 
         public static Game GetGameFromName(String gameName)
         {
-
-            String APIKey = "87607bb5a3fe599b22933b83f2226583fec57790";
             String GiantBombAPIURL = "http://www.giantbomb.com/api/search/?api_key=" + APIKey + "&format=json&query=" + gameName +"&resources=game" +
                 "&field_list=id,name,image,deck,original_game_rating";
 
@@ -44,12 +43,13 @@ namespace PogGames.Helper
 
 
             String GiantBombGameURL = "http://www.giantbomb.com/api/game/" + id + "/?api_key=" + APIKey + "&format=json" +
-                "&field_list=name,publishers,genres,expected_release_day,expected_release_month,expected_release_year";
+                "&field_list=name,publishers,genres,expected_release_day,expected_release_month,expected_release_year,guid";
             WebClient newGameClient = new WebClient();
             newGameClient.Headers.Add("user-agent", "frankwangma");
             String furtherInfoJSON = newGameClient.DownloadString(GiantBombGameURL);
             dynamic jsonObj2 = JsonConvert.DeserializeObject<dynamic>(furtherInfoJSON);
-            Console.WriteLine(jsonObj2);
+
+            //Console.WriteLine(jsonObj2);
 
             string company = jsonObj2["results"]["publishers"][0]["name"];
             string genre = jsonObj2["results"]["genres"][0]["name"];
@@ -57,6 +57,7 @@ namespace PogGames.Helper
             string month = jsonObj2["results"]["expected_release_month"];
             string year = jsonObj2["results"]["expected_release_year"];
             string date = day + "/" + month + "/" + year;
+            string guid = jsonObj2["results"]["guid"];
 
             Game game = new Game
             {
@@ -70,8 +71,93 @@ namespace PogGames.Helper
                 GameRelease = date,
                 IsFavourite = false
             };
+
+            GetCharacterFromGameId(guid);
            
             return game;
+        }
+
+        public static List<Character> GetCharacterFromGameId(String gameID)
+        {
+            
+            String getCharactersURL = "http://www.giantbomb.com/api/game/" + gameID + "/?api_key=" + APIKey + "&format=json" +
+                "&field_list=characters";
+
+            // Use an http client to grab the JSON string from the web.
+            WebClient gameClient = new WebClient();
+            gameClient.Headers.Add("user-agent", "frankwangma");
+            String gameInfoJSON = gameClient.DownloadString(getCharactersURL);
+
+            // Using dynamic object helps us to more efficiently extract information from a large JSON String.
+            dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(gameInfoJSON);
+
+            List<String> charIds = new List<string>();
+            foreach(dynamic item in jsonObj["results"]["characters"])
+            {
+                String charID = item["id"];
+                charIds.Add(charID);
+            }
+
+            List<Character> characters = new List<Character>();
+            foreach(String charId in charIds)
+            {
+                Character character = getCharacterInfoFromCharId(charId);
+                character.GameId = gameID;
+                characters.Add(character);
+            }
+
+            return characters;
+        }
+
+        public static Character getCharacterInfoFromCharId(String charID)
+        {
+            String getCharactersURL = "http://www.giantbomb.com/api/character/" + charID + "/?api_key=" + APIKey + "&format=json" +
+                "&field_list=name,image,deck,locations,gender";
+
+            // Use an http client to grab the JSON string from the web.
+            WebClient gameClient = new WebClient();
+            gameClient.Headers.Add("user-agent", "frankwangma");
+            String gameInfoJSON = gameClient.DownloadString(getCharactersURL);
+
+            // Using dynamic object helps us to more efficiently extract information from a large JSON String.
+            dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(gameInfoJSON);
+
+            Console.WriteLine(jsonObj);
+
+            string name = jsonObj["results"]["name"];
+            string description = jsonObj["results"]["deck"];
+            string genderNum = jsonObj["results"]["gender"];
+            string gender;
+            switch(genderNum)
+            {
+                case "1":
+                    gender = "Male";
+                    break;
+                case "2":
+                    gender = "Female";
+                    break;
+                default:
+                    gender = "Other";
+                    break;
+            }
+            string imageURL = jsonObj["results"]["image"]["small_url"];
+            string country = jsonObj["results"]["locations"][0]["name"];
+            if(String.IsNullOrEmpty(country)) 
+            {
+                country = "Unknown";
+            }
+
+            Character character = new Character()
+            {
+                CharName = name,
+                CharId = charID,
+                CharDescription = description,
+                CharCountry = country,
+                CharGender = gender,
+                CharImageUrl = imageURL,
+            };
+
+            return character;
         }
     }
 }

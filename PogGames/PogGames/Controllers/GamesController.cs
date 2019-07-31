@@ -47,6 +47,14 @@ namespace PogGames.Controllers
             return game;
         }
 
+        // GET api/Games/SearchByCharacters/HelloWorld
+        [HttpGet("SearchByCharacters/{searchString}")]
+        public async Task<ActionResult<IEnumerable<Game>>> Search(string searchString)
+        {
+            var games = await _context.Game.Include(game => game.Character).ToListAsync();
+            return Ok(games);
+        }
+
         // PUT: api/Games/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutGame(string id, Game game)
@@ -98,6 +106,30 @@ namespace PogGames.Controllers
             //add the game object to database
             _context.Game.Add(game);
             await _context.SaveChangesAsync();
+
+            //Get the ID from the game (same ID from the API)
+            string id = game.GameId;
+
+            // This is needed because context are NOT thread safe, therefore we create another context for the following task.
+            // We will be using this to insert characters into the database on a separate thread
+            // So that it doesn't block the API.
+            PogGamesContext tempContext = new PogGamesContext();
+            CharactersController characterController = new CharactersController(tempContext);
+
+            // This will be executed in the background.
+            Task addCharacters = Task.Run(async () =>
+            {
+                // Get the list of characters from the GiantBombHelper
+                List<Character> characters = new List<Character>();
+                characters = GiantBombHelper.GetCharacterFromGameId(id);
+
+                foreach(Character chara in characters)
+                {
+                    chara.GameId = id;
+                    // Add this Character to the database
+                    await characterController.PostCharacter(chara);
+                }
+            });
 
             //return success code and game object
             return CreatedAtAction("GetGame", new { id = game.GameId }, game);

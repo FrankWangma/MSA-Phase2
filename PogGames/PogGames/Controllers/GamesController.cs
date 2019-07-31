@@ -51,7 +51,22 @@ namespace PogGames.Controllers
         [HttpGet("SearchByCharacters/{searchString}")]
         public async Task<ActionResult<IEnumerable<Game>>> Search(string searchString)
         {
-            var games = await _context.Game.Include(game => game.Character).ToListAsync();
+            var games = await _context.Game.Include(game => game.Character).Select(game => new Game
+            {
+                GameId = game.GameId,
+                GameCompany = game.GameCompany,
+                GameName = game.GameName,
+                GameRelease = game.GameRelease,
+                GameSummary = game.GameSummary,
+                Genre = game.Genre,
+                CoverImageUrl = game.CoverImageUrl,
+                IsFavourite = game.IsFavourite,
+                Rating = game.Rating,
+                Character = game.Character.Where(chara => chara.CharName.Contains(searchString)).ToList()
+            }).ToListAsync();
+
+            //remove all games with empty characters
+            games.RemoveAll(game => game.Character.Count == 0);
             return Ok(games);
         }
 

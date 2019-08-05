@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace PogGames.Model
 {
@@ -42,5 +43,40 @@ namespace PogGames.Model
 
         [InverseProperty("Game")]
         public virtual ICollection<Character> Character { get; set; }
+    }
+
+    [DataContract]
+    public class GameDTO
+    {
+        [DataMember]
+        public string GameName { get; set; }
+
+        [DataMember]
+        public string GameRelease { get; set; }
+
+        [DataMember]
+        public string GameCompany { get; set; }
+
+        [DataMember]
+        public string CoverImageUrl { get; set; }
+        
+        [DataMember]
+        public string Genre { get; set; }
+        
+        [DataMember]
+        public string GameSummary { get; set; }
+        
+        [DataMember]
+        public string Rating { get; set; }
+
+        [DataMember]
+        public int? RatingCount { get; set; }
+        
+        [DataMember]
+        public bool IsFavourite { get; set; }
+        
+        [DataMember]
+        public string GameId { get; set; }
+
     }
 }

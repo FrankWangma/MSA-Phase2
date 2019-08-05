@@ -12,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PogGames.Model;
 using Swashbuckle.AspNetCore.Swagger;
+using AutoMapper;
 
 namespace PogGames
 {
@@ -29,6 +30,9 @@ namespace PogGames
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<PogGamesContext>();
+            services.AddAutoMapper(typeof(Startup));
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).AddJsonOptions(
             options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 

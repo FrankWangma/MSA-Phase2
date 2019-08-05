@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PogGames.Helper;
 using PogGames.Model;
+using PogGames.DAL;
+using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace PogGames.Controllers
 {
@@ -14,17 +17,21 @@ namespace PogGames.Controllers
     [ApiController]
     public class GamesController : ControllerBase
     {
+        private IGameRepository gameRepository;
+        private readonly IMapper _mapper;
+
+        public GamesController(PogGamesContext context, IMapper mapper)
+        {
+            _context = context;
+            _mapper = mapper;
+            this.gameRepository = new GameRepository(new PogGamesContext());
+        }
 
         public class NameDTO
         {
             public string gameName { get; set; }
         }
         private readonly PogGamesContext _context;
-
-        public GamesController(PogGamesContext context)
-        {
-            _context = context;
-        }
 
         // GET: api/Games
         [HttpGet]
@@ -170,6 +177,24 @@ namespace PogGames.Controllers
         private bool GameExists(string id)
         {
             return _context.Game.Any(e => e.GameId == id);
+        }
+
+        //PUT with PATCH to handle isFavourite
+        [HttpPatch("update/{id}")]
+        public GameDTO Patch(string id, [FromBody]JsonPatchDocument<GameDTO> gamePatch)
+        {
+            //get original game object from the database
+            Game originGame = gameRepository.GetGameById(id);
+            //use automapper to map that to DTO object
+            GameDTO gameDTO = _mapper.Map<GameDTO>(originGame);
+            //apply the patch to that DTO
+            gamePatch.ApplyTo(gameDTO);
+            //use automapper to map the DTO back ontop of the database object
+            _mapper.Map(gameDTO, originGame);
+            //update game in the database
+            _context.Update(originGame);
+            _context.SaveChanges();
+            return gameDTO;
         }
     }
 }

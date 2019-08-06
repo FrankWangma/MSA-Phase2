@@ -13111,11 +13111,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Frank\\Documents\\MSA-Phase2-Project\\MSA-Phase2\\PogGames\\PogGames\\PogGames.csproj",
+      "projectUniqueName": "C:\\Users\\Frank\\Documents\\MSA-Phase2-Project\\MSA-Phase2-PogGamesAPI\\PogGames\\PogGames.csproj",
       "projectName": "PogGames",
-      "projectPath": "C:\\Users\\Frank\\Documents\\MSA-Phase2-Project\\MSA-Phase2\\PogGames\\PogGames\\PogGames.csproj",
+      "projectPath": "C:\\Users\\Frank\\Documents\\MSA-Phase2-Project\\MSA-Phase2-PogGamesAPI\\PogGames\\PogGames.csproj",
       "packagesPath": "C:\\Users\\Frank\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Frank\\Documents\\MSA-Phase2-Project\\MSA-Phase2\\PogGames\\PogGames\\obj\\",
+      "outputPath": "C:\\Users\\Frank\\Documents\\MSA-Phase2-Project\\MSA-Phase2-PogGamesAPI\\PogGames\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

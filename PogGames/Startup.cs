@@ -79,6 +79,8 @@ namespace PogGames
                 app.UseHsts();
             }
 
+            app.UseCors(MyAllowSpecificOrigins);
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }

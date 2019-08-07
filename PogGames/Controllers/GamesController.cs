@@ -148,6 +148,7 @@ namespace PogGames.Controllers
                 foreach (Character chara in characters)
                 {
                     chara.GameId = id;
+                    Console.WriteLine(chara);
                     // Add this Character to the database
                     await characterController.PostCharacter(chara);
                 }
@@ -161,7 +162,7 @@ namespace PogGames.Controllers
         // DELETE: api/Games/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Game>> DeleteGame(string id)
-        {
+        { 
             var game = await _context.Game.FindAsync(id);
             if (game == null)
             {

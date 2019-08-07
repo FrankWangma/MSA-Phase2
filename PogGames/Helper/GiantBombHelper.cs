@@ -13,7 +13,7 @@ namespace PogGames.Helper
         private static String APIKey = "87607bb5a3fe599b22933b83f2226583fec57790";
         public static void testProgram()
         {
-            Console.WriteLine(GetGameFromName(";gfkj;"));
+            Console.WriteLine(GetCharacterFromGameId("48190"));
 
             // Pause the program execution
             Console.ReadLine();
@@ -132,7 +132,7 @@ namespace PogGames.Helper
 
             // Using dynamic object helps us to more efficiently extract information from a large JSON String.
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(gameInfoJSON);
-
+            Console.WriteLine(jsonObj);
 
             string name = jsonObj["results"]["name"];
             string description = jsonObj["results"]["deck"];

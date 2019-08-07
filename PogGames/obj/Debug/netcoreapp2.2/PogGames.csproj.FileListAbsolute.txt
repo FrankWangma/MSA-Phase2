@@ -40,3 +40,17 @@ C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2\PogGames\PogGames\obj\Deb
 C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2\PogGames\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorTargetAssemblyInfo.cache
 C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2\PogGames\PogGames\obj\Debug\netcoreapp2.2\PogGames.dll
 C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2\PogGames\PogGames\obj\Debug\netcoreapp2.2\PogGames.pdb
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\bin\Debug\netcoreapp2.2\PogGames.deps.json
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\bin\Debug\netcoreapp2.2\PogGames.runtimeconfig.json
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\bin\Debug\netcoreapp2.2\PogGames.runtimeconfig.dev.json
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\bin\Debug\netcoreapp2.2\PogGames.dll
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\bin\Debug\netcoreapp2.2\PogGames.pdb
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.csprojAssemblyReference.cache
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.csproj.CoreCompileInputs.cache
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorAssemblyInfo.cache
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorAssemblyInfo.cs
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.AssemblyInfoInputs.cache
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.AssemblyInfo.cs
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorTargetAssemblyInfo.cache
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.dll
+C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.pdb

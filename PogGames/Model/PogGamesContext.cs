@@ -33,12 +33,11 @@ namespace PogGames.Model
 
             modelBuilder.Entity<Character>(entity =>
             {
-                entity.HasKey(e => e.CharId)
-                    .HasName("PK__Characte__AA7BC2746DC2D953");
+                entity.HasKey(e => new { e.ApiCharId, e.GameId });
 
-                entity.Property(e => e.CharId)
-                    .IsUnicode(false)
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ApiCharId).IsUnicode(false);
+
+                entity.Property(e => e.GameId).IsUnicode(false);
 
                 entity.Property(e => e.CharCountry).IsUnicode(false);
 
@@ -49,8 +48,6 @@ namespace PogGames.Model
                 entity.Property(e => e.CharImageUrl).IsUnicode(false);
 
                 entity.Property(e => e.CharName).IsUnicode(false);
-
-                entity.Property(e => e.GameId).IsUnicode(false);
 
                 entity.HasOne(d => d.Game)
                     .WithMany(p => p.Character)

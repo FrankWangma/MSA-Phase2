@@ -162,7 +162,7 @@ namespace PogGames.Helper
             Character character = new Character()
             {
                 CharName = name,
-                CharId = charID,
+                ApiCharId = charID,
                 CharDescription = description,
                 CharCountry = country,
                 CharGender = gender,

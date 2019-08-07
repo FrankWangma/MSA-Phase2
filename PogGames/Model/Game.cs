@@ -59,22 +59,22 @@ namespace PogGames.Model
 
         [DataMember]
         public string CoverImageUrl { get; set; }
-        
+
         [DataMember]
         public string Genre { get; set; }
-        
+
         [DataMember]
         public string GameSummary { get; set; }
-        
+
         [DataMember]
         public string Rating { get; set; }
 
         [DataMember]
         public int? RatingCount { get; set; }
-        
+
         [DataMember]
         public bool IsFavourite { get; set; }
-        
+
         [DataMember]
         public string GameId { get; set; }
 

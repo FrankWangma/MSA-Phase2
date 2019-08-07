@@ -8,9 +8,6 @@ namespace PogGames.Model
     public partial class Character
     {
         [StringLength(255)]
-        public string CharId { get; set; }
-        [Required]
-        [StringLength(255)]
         public string GameId { get; set; }
         [Required]
         [StringLength(255)]
@@ -28,6 +25,9 @@ namespace PogGames.Model
         [Column("CharImageURL")]
         [StringLength(255)]
         public string CharImageUrl { get; set; }
+        [Column("apiCharId")]
+        [StringLength(20)]
+        public string ApiCharId { get; set; }
 
         [ForeignKey("GameId")]
         [InverseProperty("Character")]

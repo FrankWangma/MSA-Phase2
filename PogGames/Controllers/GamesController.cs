@@ -145,7 +145,7 @@ namespace PogGames.Controllers
                 List<Character> characters = new List<Character>();
                 characters = GiantBombHelper.GetCharacterFromGameId(id);
 
-                foreach(Character chara in characters)
+                foreach (Character chara in characters)
                 {
                     chara.GameId = id;
                     // Add this Character to the database

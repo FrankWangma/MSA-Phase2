@@ -45,7 +45,7 @@ namespace PogGames.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCharacter(string id, Character character)
         {
-            if (id != character.CharId)
+            if (id != character.ApiCharId)
             {
                 return BadRequest();
             }
@@ -82,7 +82,7 @@ namespace PogGames.Controllers
             }
             catch (DbUpdateException)
             {
-                if (CharacterExists(character.CharId))
+                if (CharacterExists(character.ApiCharId))
                 {
                     return Conflict();
                 }
@@ -92,7 +92,7 @@ namespace PogGames.Controllers
                 }
             }
 
-            return CreatedAtAction("GetCharacter", new { id = character.CharId }, character);
+            return CreatedAtAction("GetCharacter", new { id = character.ApiCharId }, character);
         }
 
         // DELETE: api/Characters/5
@@ -113,7 +113,7 @@ namespace PogGames.Controllers
 
         private bool CharacterExists(string id)
         {
-            return _context.Character.Any(e => e.CharId == id);
+            return _context.Character.Any(e => e.ApiCharId == id);
         }
     }
 }

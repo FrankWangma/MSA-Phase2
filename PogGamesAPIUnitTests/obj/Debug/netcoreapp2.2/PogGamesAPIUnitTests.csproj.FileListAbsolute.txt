@@ -1,0 +1,17 @@
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGamesAPIUnitTests.deps.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGamesAPIUnitTests.runtimeconfig.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGamesAPIUnitTests.runtimeconfig.dev.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGamesAPIUnitTests.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGamesAPIUnitTests.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGames.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\bin\Debug\netcoreapp2.2\PogGames.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.csprojAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.AssemblyInfo.cs
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.csproj.CopyComplete
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGamesAPIUnitTests\obj\Debug\netcoreapp2.2\PogGamesAPIUnitTests.pdb

@@ -54,3 +54,16 @@ C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\
 C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorTargetAssemblyInfo.cache
 C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.dll
 C:\Users\Frank\Documents\MSA-Phase2-Project\MSA-Phase2-PogGamesAPI\PogGames\obj\Debug\netcoreapp2.2\PogGames.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\bin\Debug\netcoreapp2.2\PogGames.deps.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\bin\Debug\netcoreapp2.2\PogGames.runtimeconfig.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\bin\Debug\netcoreapp2.2\PogGames.runtimeconfig.dev.json
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\bin\Debug\netcoreapp2.2\PogGames.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\bin\Debug\netcoreapp2.2\PogGames.pdb
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorAssemblyInfo.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorAssemblyInfo.cs
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.AssemblyInfoInputs.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.AssemblyInfo.cs
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.RazorTargetAssemblyInfo.cache
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.dll
+C:\Users\User\Documents\Visual Studio 2017\Projects\MSA-Phase2-Project\PogGames\obj\Debug\netcoreapp2.2\PogGames.pdb

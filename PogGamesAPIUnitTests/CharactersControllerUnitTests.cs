@@ -92,39 +92,6 @@ namespace PogGamesAPIUnitTests
         }
 
         [TestMethod]
-        public async Task TestGetWithIdSuccessfully()
-        {
-
-            using (var context = new PogGamesContext(options))
-            {
-                CharactersController charactersController = new CharactersController(context);
-                ActionResult<Character> result = await charactersController.GetCharacter("01");
-                Assert.IsNotNull(result);
-                Assert.AreEqual(result, characters[0]);
-            }
-
-        }
-
-        [TestMethod]
-        public async Task TestDeleteSuccessfully()
-        {
-            using (var context = new PogGamesContext(options))
-            {
-                CharactersController charactersController = new CharactersController(context);
-
-                ActionResult<IEnumerable<Character>> result1 = await charactersController.GetCharacter();
-
-                String apiCharId = "02";
-
-                ActionResult<Character> delete = await charactersController.DeleteCharacter(apiCharId);
-
-                ActionResult<IEnumerable<Character>> result2 = await charactersController.GetCharacter();
-
-                Assert.AreNotEqual(result1, result2);
-            }
-        }
-
-        [TestMethod]
         public async Task TestPostSuccessfully()
         {
             using (var context = new PogGamesContext(options))
@@ -145,6 +112,26 @@ namespace PogGamesAPIUnitTests
                 ActionResult<IEnumerable<Character>> result2 = await charactersController.GetCharacter();
 
                
+                //Asser that the lists are no longer equal
+                Assert.AreNotEqual(result1, result2);
+            }
+        }
+
+        // Test post method DeleteCharacter()
+        [TestMethod]
+        public async Task TestDeleteSuccessfully()
+        {
+            using (var context = new PogGamesContext())
+            {
+                CharactersController charactersController = new CharactersController(context);
+
+                ActionResult<IEnumerable<Character>> result1 = await charactersController.GetCharacter();
+
+                ActionResult<Character> delete = await charactersController.DeleteCharacter("01");
+
+                ActionResult<IEnumerable<Character>> result2 = await charactersController.GetCharacter();
+
+                // Make sure that the characters list changed after delete 
                 Assert.AreNotEqual(result1, result2);
             }
         }

@@ -99,7 +99,7 @@ namespace PogGames.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Character>> DeleteCharacter(string id)
         {
-            var character = await _context.Character.FindAsync(id);
+            var character = _context.Character.Where(chara => chara.ApiCharId == (id)).SingleOrDefault();
             if (character == null)
             {
                 return NotFound();
